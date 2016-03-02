@@ -7,14 +7,14 @@
         });
         
         $stateProvider
-            .state('landing', {
+            .state('pomodoro', {
                 url: '/',
-                controller: 'LandingCtrl as landing',
-                templateUrl: '/templates/landing.html'
+                controller: 'PomodoroCtrl as pomodoro',
+                templateUrl: '/templates/pomodoro.html'
             });
     }
     
     angular
-        .module('Bloctime', ['ui.router', 'firebase'])
+        .module('bloctime', ['ui.router', 'firebase'])
         .config(config);
  })();

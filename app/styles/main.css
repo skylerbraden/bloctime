@@ -1,0 +1,10 @@
+body {
+    background-image: url(../assets/images/wood-panels.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    font-family: 'Open Sans';
+    color: #fff;
+    min-height: 100%;
+}

@@ -1,0 +1,29 @@
+.timer {
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 200px;
+}
+
+.timer .countdown-clock {
+    font-weight: 100;
+    font-size: 5rem;
+    margin-bottom: auto;
+}
+
+.timer .start-button {
+    width: 200px;
+    height: 40px;
+    font-size: 1.5rem;
+    font-weight: 100;
+    background-color: lightgray;
+    border: none;
+    text-transform: uppercase;
+}
+
+.timer .start-button:hover {
+    color: lightgray;
+    background-color: white;
+}
