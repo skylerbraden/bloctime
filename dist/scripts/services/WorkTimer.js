@@ -1,37 +1,25 @@
 (function() {
-    function WorkTimer() {
+    function WorkTimer($interval) {
         var WorkTimer = {};
+        var currentInterval;
+        WorkTimer.currentTime = 999;
         
-        WorkTimer.startTimer = function(duration, display) {
-            var timer = duration, minutes, seconds;
-            $interval(function() {
-                minutes = parseInt(timer / 60, 10);
-                seconds = parseInt(timer % 60, 10);
-                
-                minutes = minutes < 10 ? "0" + minutes : minutes;
-                seconds = seconds < 10 ? "0" + seconds : seconds;
-                
-                display.textContent = minutes + ":" + seconds;
-                
-                if(--timer < 0) {
-                    timer = duration;
-                }
-                
-                
-            }, 1000);
+        WorkTimer.startWork = function() {
+            currentInterval = $interval(function(){
+                WorkTimer.currentTime--;
+            }, 1000)
         }
         
-        var twentyFiveMinutes = 60 * 25;
+        WorkTimer.resetWork = function() {
+            $interval.cancel(currentInterval);
+            WorkTimer.currentTime = 999;
+        }
         
-        WorkTimer.startTimer(twentyFiveMinutes, display);
-    }
-            
-    };
-           
         return WorkTimer;
     }
+           
     
     angular
         .module('bloctime')
-        .factory('WorkTimer', WorkTimer);
+        .factory('WorkTimer', ['$interval', WorkTimer]);
 })();

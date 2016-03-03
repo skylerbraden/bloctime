@@ -1,7 +1,9 @@
 (function() {
     function PomodoroCtrl(WorkTimer) {
-        this.countdownClock = "25:00";
-        this.workTimer = WorkTimer;
+        var vm = this;
+        vm.workTimer = WorkTimer;
+
+
     }
     
     angular

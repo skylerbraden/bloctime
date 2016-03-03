@@ -1,7 +1,8 @@
 <section class="timer">
     
-<h1 class="countdown-clock">{{ pomodoro.countdownClock }}</h1>
+<h1 class="countdown-clock">{{ pomodoro.workTimer.currentTime }}</h1>
     
-    <button class="start-button" ng-click="pomodoro.workTimer.startWork()">Start</button>
+    <button class="wide-button start-button" ng-click="pomodoro.workTimer.startWork()">Start</button>
+    <button class="wide-button reset button" ng-click="pomodoro.workTimer.resetWork()">Reset</button>
     
 </section>
