@@ -2,20 +2,38 @@
     function WorkTimer($interval) {
         var WorkTimer = {};
         var currentInterval;
-        WorkTimer.currentTime = 999;
+        var completedPomodoros;
+        WorkTimer.currentTime = 5;
         
         WorkTimer.startWork = function() {
             currentInterval = $interval(function(){
-                WorkTimer.currentTime--;
-            }, 1000)
-        }
+                
+                if(WorkTimer.currentTime > 0){
+                    WorkTimer.currentTime--;
+                }else{
+                    $interval.cancel(currentInterval);
+                    pomodoroCompleted();
+                }
+                console.log(WorkTimer.currentTime);
+            }, 1000);
+            
+            // Why is this not working? Do we need some sort of a promise?
+        };
         
         WorkTimer.resetWork = function() {
             $interval.cancel(currentInterval);
-            WorkTimer.currentTime = 999;
-        }
+            WorkTimer.currentTime = 5;
+        };
         
         return WorkTimer;
+        
+        
+        
+        
+        function pomodoroCompleted(){
+            WorkTimer.currentTime = 2;
+            completedPomodoros++;
+        }
     }
            
     
