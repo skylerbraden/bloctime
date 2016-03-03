@@ -2,7 +2,9 @@
     
 <h1 class="countdown-clock">{{ pomodoro.workTimer.currentTime }}</h1>
     
-    <button class="wide-button start-button" ng-click="pomodoro.workTimer.startWork()">Start</button>
+    <button class="wide-button start-button" ng-click="pomodoro.workTimer.startWork()" ng-show="!pomodoro.workTimer.counting">Start</button>
+    <button class="wide-button start-button" ng-click="pomodoro.workTimer.pauseWork()" ng-show="pomodoro.workTimer.counting">Pause</button>
+    
     <button class="wide-button reset button" ng-click="pomodoro.workTimer.resetWork()">Reset</button>
     
 </section>

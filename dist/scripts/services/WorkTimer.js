@@ -4,19 +4,26 @@
         var currentInterval;
         var completedPomodoros;
         WorkTimer.currentTime = 5;
+        WorkTimer.counting = null;
         
         WorkTimer.startWork = function() {
             currentInterval = $interval(function(){
                 
-                if(WorkTimer.currentTime > 0){
+                if(WorkTimer.currentTime > 0) {
                     WorkTimer.currentTime--;
-                }else{
+                    WorkTimer.counting = true;
+                }else {
                     $interval.cancel(currentInterval);
                     pomodoroCompleted();
+                    WorkTimer.counting = false;
                 }
-                console.log(WorkTimer.currentTime);
             }, 1000);
             
+        };
+        
+        WorkTimer.pauseWork = function() {
+            $interval.cancel(currentInterval);
+            WorkTimer.counting = false;
         };
         
         WorkTimer.resetWork = function() {
