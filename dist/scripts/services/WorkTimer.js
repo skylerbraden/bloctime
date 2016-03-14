@@ -3,7 +3,8 @@
         var WorkTimer = {};
         var currentInterval;
         var completedPomodoros;
-        WorkTimer.currentTime = 5;
+        WorkTimer.currentTime = 8;
+        WorkTimer.maxTime = 8;
         WorkTimer.counting = null;
         
         WorkTimer.startWork = function() {
@@ -28,7 +29,8 @@
         
         WorkTimer.resetWork = function() {
             $interval.cancel(currentInterval);
-            WorkTimer.currentTime = 5;
+            WorkTimer.currentTime = 8;
+            WorkTimer.maxTime = 8;
         };
         
         return WorkTimer;
@@ -37,7 +39,8 @@
         
         
         function pomodoroCompleted(){
-            WorkTimer.currentTime = 2;
+            WorkTimer.currentTime = 5;
+            WorkTimer.maxTime = 5;
             completedPomodoros++;
         }
     }

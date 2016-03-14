@@ -2,9 +2,18 @@
     
 <h1 class="countdown-clock">{{ pomodoro.workTimer.currentTime }}</h1>
     
-    <button class="wide-button start-button" ng-click="pomodoro.workTimer.startWork()" ng-show="!pomodoro.workTimer.counting">Start</button>
-    <button class="wide-button start-button" ng-click="pomodoro.workTimer.pauseWork()" ng-show="pomodoro.workTimer.counting">Pause</button>
+    <button class="wide-button start-button" ng-click="pomodoro.workTimer.startWork()" ng-show="!pomodoro.workTimer.counting && pomodoro.workTimer.currentTime == pomodoro.workTimer.maxTime">Start</button>
+    <button class="wide-button pause-button" ng-click="pomodoro.workTimer.pauseWork()" ng-show="pomodoro.workTimer.counting">Pause</button>
+    <button class="wide-button resume-button" ng-click="pomodoro.workTimer.startWork()" ng-show="!pomodoro.workTimer.counting && pomodoro.workTimer.currentTime < pomodoro.workTimer.maxTime">Resume</button>
     
     <button class="wide-button reset button" ng-click="pomodoro.workTimer.resetWork()">Reset</button>
     
+</section>
+
+<section class="pomodoroCount">
+    <span class="ion-ios-circle-outline pomOne pomIncomplete"></span>
+    <span class="ion-ios-circle-outline pomTwo pomIncomplete"></span>
+    <span class="ion-ios-circle-outline pomThree pomIncomplete"></span>
+    <span class="ion-ios-circle-outline pomFour pomIncomplete"></span>
+    <span class="ion-ios-circle-outline pomFive pomIncomplete"></span>
 </section>

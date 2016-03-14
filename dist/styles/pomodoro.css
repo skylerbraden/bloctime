@@ -29,3 +29,13 @@
     color: lightgray;
     background-color: white;
 }
+
+.pomodoroCount {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 25px;
+}
+
+.pomodoroCount span {
+    margin-right: 10px;
+}
