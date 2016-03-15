@@ -33,11 +33,7 @@
             WorkTimer.currentTime = 8;
             WorkTimer.maxTime = 8;
         };
-        
-        return WorkTimer;
-        
-        
-        
+                
         
         function pomodoroCompleted(){
             WorkTimer.currentTime = 5;
@@ -45,6 +41,8 @@
             WorkTimer.pomComplete = true;
             completedPomodoros++;
         }
+        
+        return WorkTimer;
     }
            
     
