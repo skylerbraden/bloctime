@@ -5,6 +5,7 @@
         var completedPomodoros;
         WorkTimer.currentTime = 8;
         WorkTimer.maxTime = 8;
+        WorkTimer.pomComplete = false;
         WorkTimer.counting = null;
         
         WorkTimer.startWork = function() {
@@ -41,6 +42,7 @@
         function pomodoroCompleted(){
             WorkTimer.currentTime = 5;
             WorkTimer.maxTime = 5;
+            WorkTimer.pomComplete = true;
             completedPomodoros++;
         }
     }

@@ -11,9 +11,11 @@
 </section>
 
 <section class="pomodoroCount">
-    <span class="ion-ios-circle-outline pomOne pomIncomplete"></span>
+    <span class="ion-ios-circle-outline pomOne pomIncomplete" ng-show="!pomComplete"></span>
+    <span class="ion-ios-circle pomOne pomIncomplete" ng-show="pomComplete"></span>
     <span class="ion-ios-circle-outline pomTwo pomIncomplete"></span>
     <span class="ion-ios-circle-outline pomThree pomIncomplete"></span>
     <span class="ion-ios-circle-outline pomFour pomIncomplete"></span>
     <span class="ion-ios-circle-outline pomFive pomIncomplete"></span>
+    <span class="ion-ios-circle-outline pomSix pomIncomplete"></span>
 </section>
