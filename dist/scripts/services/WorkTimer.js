@@ -53,6 +53,14 @@
 				WorkTimer.counting = false;
 			}
         };
+		
+		WorkTimer.clearPomodoros = function() {
+			$interval.cancel(currentInterval);
+			WorkTimer.completedPomodoros = 0;
+			WorkTimer.currentTime = 8;
+			WorkTimer.maxTime = 8;
+			WorkTimer.counting = false;
+		};
         
         function workCompleted() {
             WorkTimer.currentTime = 5;
