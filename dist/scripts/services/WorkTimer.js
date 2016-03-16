@@ -43,8 +43,15 @@
         
         WorkTimer.resetWork = function() {
             $interval.cancel(currentInterval);
-            WorkTimer.currentTime = 8;
-            WorkTimer.maxTime = 8;
+			if(WorkTimer.maxTime == 8) {
+				WorkTimer.currentTime = 8;
+				WorkTimer.maxTime = 8;
+				WorkTimer.counting = false;
+			} else{
+				WorkTimer.currentTime = 5;
+				WorkTimer.maxTime = 5;
+				WorkTimer.counting = false;
+			}
         };
         
         function workCompleted() {
