@@ -1,8 +1,7 @@
 (function() {
-    function PomodoroCtrl(WorkTimer, $firebaseObject) {
+    function PomodoroCtrl(WorkTimer) {
         var vm = this;
         vm.workTimer = WorkTimer;
-		var ref = new Firebase("https://bloctime-sjb.firebaseio.com");
     }
         
     angular

@@ -14,23 +14,23 @@
 </section>
 
 <section class="pomodoroCount">
-    <span class="ion-ios-circle-outline" ng-hide="pomodoro.workTimer.completedPomodoros > 0"></span>
-	<span class="ion-ios-circle-filled" ng-show="pomodoro.workTimer.completedPomodoros >= 1"></span>
+    <span class="ion-ios-circle-outline" ng-hide="pomodoro.workTimer.user.completedPomodoros > 0"></span>
+	<span class="ion-ios-circle-filled" ng-show="pomodoro.workTimer.user.completedPomodoros >= 1"></span>
 	
-	<span class="ion-ios-circle-outline" ng-hide="pomodoro.workTimer.completedPomodoros > 1"></span>
-	<span class="ion-ios-circle-filled" ng-show="pomodoro.workTimer.completedPomodoros >= 2"></span>
+	<span class="ion-ios-circle-outline" ng-hide="pomodoro.workTimer.user.completedPomodoros > 1"></span>
+	<span class="ion-ios-circle-filled" ng-show="pomodoro.workTimer.user.completedPomodoros >= 2"></span>
 	
-	<span class="ion-ios-circle-outline" ng-hide="pomodoro.workTimer.completedPomodoros > 2"></span>
-	<span class="ion-ios-circle-filled" ng-show="pomodoro.workTimer.completedPomodoros >= 3"></span>
+	<span class="ion-ios-circle-outline" ng-hide="pomodoro.workTimer.user.completedPomodoros > 2"></span>
+	<span class="ion-ios-circle-filled" ng-show="pomodoro.workTimer.user.completedPomodoros >= 3"></span>
 	
-	<span class="ion-ios-circle-outline" ng-hide="pomodoro.workTimer.completedPomodoros > 3"></span>
-	<span class="ion-ios-circle-filled" ng-show="pomodoro.workTimer.completedPomodoros >= 4"></span>
+	<span class="ion-ios-circle-outline" ng-hide="pomodoro.workTimer.user.completedPomodoros > 3"></span>
+	<span class="ion-ios-circle-filled" ng-show="pomodoro.workTimer.user.completedPomodoros >= 4"></span>
 	
-	<span class="ion-ios-circle-outline" ng-hide="pomodoro.workTimer.completedPomodoros > 4"></span>
-	<span class="ion-ios-circle-filled" ng-show="pomodoro.workTimer.completedPomodoros >= 5"></span>
+	<span class="ion-ios-circle-outline" ng-hide="pomodoro.workTimer.user.completedPomodoros > 4"></span>
+	<span class="ion-ios-circle-filled" ng-show="pomodoro.workTimer.user.completedPomodoros >= 5"></span>
 	
-	<span class="ion-ios-circle-outline" ng-hide="pomodoro.workTimer.completedPomodoros > 5"></span>
-	<span class="ion-ios-circle-filled" ng-show="pomodoro.workTimer.completedPomodoros >= 6"></span>
+	<span class="ion-ios-circle-outline" ng-hide="pomodoro.workTimer.user.completedPomodoros > 5"></span>
+	<span class="ion-ios-circle-filled" ng-show="pomodoro.workTimer.user.completedPomodoros >= 6"></span>
 	
 	<button class="wide-button clear-button" ng-click="pomodoro.workTimer.clearPomodoros()">Clear</button>
 </section>

@@ -1,8 +1,22 @@
 (function() {
-    function WorkTimer($interval) {
-        var WorkTimer = {};
+    function WorkTimer($interval, $firebaseObject, $firebaseArray) {
+		var ref = new Firebase('https://bloctime-sjb.firebaseio.com/users/1');
+		var user = $firebaseObject(ref)
+		var WorkTimer = {};
+		
+		user.$loaded().then(function(){
+			if(user.completedPomodoros == null){
+				user.completedPomdoros = 0;
+				user.$save();
+			}
+			
+			 WorkTimer.user = user;
+		})
+		
+		
+        
         var currentInterval;
-        WorkTimer.completedPomodoros = 0;
+     
         WorkTimer.currentTime = 8;
         WorkTimer.maxTime = 8;
         WorkTimer.counting = false;
@@ -65,20 +79,41 @@
         function workCompleted() {
             WorkTimer.currentTime = 5;
             WorkTimer.maxTime = 5;
-            WorkTimer.completedPomodoros++;
-			console.log(WorkTimer.completedPomodoros);
+            WorkTimer.user.completedPomodoros++;
+			WorkTimer.user.$save();
+			console.log(WorkTimer.user.completedPomodoros);
         }
         
         function breakCompleted() {
             WorkTimer.currentTime = 8;
             WorkTimer.maxTime = 8;
         }
-        
+		
+		
+		
+//		//firebase
+//		return function($firebaseObject) {
+//			var randomSessionId = math.round(Math.random() * 1000);
+//			var ref = new Firebase('https://bloctime-sjb.firebaseio.com/data/1');
+////		}
+//		foo = $firebaseObject(ref)
+//		
+//		window.foo = foo;
+//        foo.zebra = "value"
+//		
+//		var ref2 = new Firebase('https://bloctime-sjb.firebaseio.com/data/2');
+//		
+//		foo2 = $firebaseArray(ref2);
+//		
+//		foo2.$add("test1")
+//		
+//		window.giraffe = foo2;
+//		
         return WorkTimer;
     }
            
     
     angular
         .module('bloctime')
-        .factory('WorkTimer', ['$interval', WorkTimer]);
+        .factory('WorkTimer', ['$interval', '$firebaseObject', '$firebaseArray', WorkTimer]);
 })();
