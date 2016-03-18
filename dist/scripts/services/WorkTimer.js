@@ -6,11 +6,11 @@
 		
 		user.$loaded().then(function(){
 			if(user.completedPomodoros == null){
-				user.completedPomdoros = 0;
+				user.completedPomodoros = 0;
 				user.$save();
 			}
 			
-			 WorkTimer.user = user;
+		 	WorkTimer.user = user;			
 		})
 		
 		
@@ -70,7 +70,8 @@
 		
 		WorkTimer.clearPomodoros = function() {
 			$interval.cancel(currentInterval);
-			WorkTimer.completedPomodoros = 0;
+			WorkTimer.user.completedPomodoros = 0;
+			WorkTimer.user.$save();
 			WorkTimer.currentTime = 8;
 			WorkTimer.maxTime = 8;
 			WorkTimer.counting = false;
@@ -79,6 +80,7 @@
         function workCompleted() {
             WorkTimer.currentTime = 5;
             WorkTimer.maxTime = 5;
+			//firebase
             WorkTimer.user.completedPomodoros++;
 			WorkTimer.user.$save();
 			console.log(WorkTimer.user.completedPomodoros);
@@ -90,19 +92,7 @@
         }
 		
 		
-		
-//		//firebase
-//		return function($firebaseObject) {
-//			var randomSessionId = math.round(Math.random() * 1000);
-//			var ref = new Firebase('https://bloctime-sjb.firebaseio.com/data/1');
-////		}
-//		foo = $firebaseObject(ref)
-//		
-//		window.foo = foo;
-//        foo.zebra = "value"
-//		
-//		var ref2 = new Firebase('https://bloctime-sjb.firebaseio.com/data/2');
-//		
+
 //		foo2 = $firebaseArray(ref2);
 //		
 //		foo2.$add("test1")

@@ -59,3 +59,39 @@
 	font-weight: 900;
     font-size: 1.5rem;
 }
+
+.work-topic {
+	position: absolute;
+	width: 100%;
+	top: 600px;
+	text-align: center;
+}
+
+.work-topic h1 {
+	font-weight: 100;
+    font-size: 2rem;
+}
+
+.work-topic-submit {
+	width: 200px;
+    height: 40px;
+	margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    font-weight: 100;
+    background-color: lightgray;
+    border: none;
+    text-transform: uppercase;
+}
+
+.work-topic-form {
+	width: 400px;
+    height: 40px;
+    margin-bottom: 15px;
+	padding: 0 7px;
+    font-size: 1.1rem;
+    font-weight: 300;
+	color: darkgray;
+    background-color: white;
+    border: none;
+}
