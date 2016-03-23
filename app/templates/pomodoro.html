@@ -37,8 +37,8 @@
 
 <section class="work-topic">
 	<h1>What are you working on today?</h1>
-	<form ng-submit="submit()">
-		<input class="work-topic-form" type="text" ng-model="text" name="worktopic" placeholder="Tell us what's up!" />
+	<form ng-submit="pomodoro.workTimer.userUpdate()">
+		<input class="work-topic-form" type="text" ng-model="pomodoro.workTimer.user.message" name="worktopic" placeholder="Tell us what's up!" />
 		<br />
 		<input class="work-topic-submit" type="submit" value="Check In" />
 		<pre>list={{list}}</pre>

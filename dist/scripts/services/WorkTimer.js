@@ -90,6 +90,10 @@
             WorkTimer.currentTime = 8;
             WorkTimer.maxTime = 8;
         }
+        
+        WorkTimer.userUpdate = function() {
+            WorkTimer.user.message = 
+        };
 		
 		
 
