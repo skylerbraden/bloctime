@@ -1,5 +1,5 @@
 (function() {
-    function WorkTimer($interval, $firebaseObject, $firebaseArray) {
+    function WorkTimer($interval, $firebaseObject) {
 		var ref = new Firebase('https://bloctime-sjb.firebaseio.com/users/1');
 		var user = $firebaseObject(ref)
 		var WorkTimer = {};
@@ -7,14 +7,13 @@
 		user.$loaded().then(function(){
 			if(user.completedPomodoros == null){
 				user.completedPomodoros = 0;
+                user.message = "Test";
 				user.$save();
 			}
 			
 		 	WorkTimer.user = user;			
 		})
 		
-		
-        
         var currentInterval;
      
         WorkTimer.currentTime = 8;
@@ -91,10 +90,12 @@
             WorkTimer.maxTime = 8;
         }
         
-        WorkTimer.userUpdate = function() {
-            WorkTimer.user.message = 
-        };
-		
+//        WorkTimer.userUpdate = function() {
+//            alert(pomodoro.workTimer.user.message)
+////            WorkTimer.user.message = angular.copy(message);
+////            WorkTimer.user.$save();
+//        };
+        		
 		
 
 //		foo2 = $firebaseArray(ref2);
@@ -109,5 +110,5 @@
     
     angular
         .module('bloctime')
-        .factory('WorkTimer', ['$interval', '$firebaseObject', '$firebaseArray', WorkTimer]);
+        .factory('WorkTimer', ['$interval', '$firebaseObject', WorkTimer]);
 })();

@@ -4,7 +4,7 @@
     height: 200px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 200px;
+    margin-top: 100px;
 }
 
 .timer .countdown-clock {
@@ -20,13 +20,13 @@
     margin-bottom: 15px;
     font-size: 1.5rem;
     font-weight: 100;
-    background-color: lightgray;
+    background-color: rgb(105, 105, 105);
     border: none;
     text-transform: uppercase;
 }
 
 .wide-button:hover {
-    color: lightgray;
+    color: rgb(105, 105, 105);
     background-color: white;
 }
 
@@ -62,36 +62,98 @@
 
 .work-topic {
 	position: absolute;
-	width: 100%;
-	top: 600px;
+	width: 400px;
+    height: 260px;
+    max-width: 100%;
+	top: 500px;
+    /* Set back to 0px if you delete animation. */
+    left: -410px;
+    right: 0;
+/*
+    margin-left: auto;
+    margin-right: auto;
+*/
 	text-align: center;
+/*    border: solid 1px;*/
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 5px;
 }
 
 .work-topic h1 {
+    margin-top: 50px;
 	font-weight: 100;
-    font-size: 2rem;
+    font-size: 1.5rem;
+    color: rgb(105, 105, 105);
+}
+
+.work-list h1 {
+    font-weight: 100;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    color: rgb(105, 105, 105);
+    text-align: center;
 }
 
 .work-topic-submit {
-	width: 200px;
-    height: 40px;
+	width: 150px;
+    height: 30px;
 	margin-top: 15px;
-    margin-bottom: 15px;
-    font-size: 1.5rem;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
     font-weight: 100;
-    background-color: lightgray;
-    border: none;
+    background-color: rgb(105, 105, 105);
     text-transform: uppercase;
+    border: none;
 }
 
 .work-topic-form {
-	width: 400px;
-    height: 40px;
+	width: 300px;
+    max-width: 90%;
+    height: 30px;
     margin-bottom: 15px;
 	padding: 0 7px;
     font-size: 1.1rem;
     font-weight: 300;
 	color: darkgray;
-    background-color: white;
+    background-color: rgb(105, 105, 105);
     border: none;
+}
+
+.remove-x {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-right: 5px;
+    cursor: pointer;
+    cursor: hand;
+}
+
+.slide-button {
+    background-color: rgb(105, 105, 105);
+    position: absolute;
+    width: 20px;
+    height: 40px;
+/*
+    left: 0px;
+    top: 600px;
+*/
+    right: -20px;
+    border: none;
+    color: rgb(105, 105, 105);
+}
+
+.work-list {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 250px;
+    height: 260px;
+    right: 0px;
+    top: 500px;
+    padding: 5px;
+    color: rgb(105, 105, 105);
+    font-weight: 300;
+}
+
+.work-list ol {
+    list-style-type: none;
+    padding: 15px;
 }

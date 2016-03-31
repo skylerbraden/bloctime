@@ -35,12 +35,31 @@
 	<button class="wide-button clear-button" ng-click="pomodoro.workTimer.clearPomodoros()">Clear</button>
 </section>
 
-<section class="work-topic">
-	<h1>What are you working on today?</h1>
-	<form ng-submit="pomodoro.workTimer.userUpdate()">
-		<input class="work-topic-form" type="text" ng-model="pomodoro.workTimer.user.message" name="worktopic" placeholder="Tell us what's up!" />
-		<br />
-		<input class="work-topic-submit" type="submit" value="Check In" />
-		<pre>list={{list}}</pre>
-	</form>
+
+
+<section class="work-list" ng-hide="pomodoro.messages.length == 0">
+    <h1> Task List</h1>
+    <ol>
+        <li ng-repeat="message in pomodoro.messages | orderBy : '-time' ">
+            <a class="remove-x" ng-click="pomodoro.removeMessage(message)">X</a>
+            {{message.text}} {{message.time | date : 'short'}}
+            
+        </li>
+    </ol>
+    <button slide-work-topic slide-left=400>:)</button>
 </section>
+
+<section class="work-topic">
+	<h1>What's on today's agenda?</h1>
+<!--    <h2>{{pomodoro.messages[1].text}}</h2>-->
+<!--    <h3>{{pomodoro.workTimer.user.message}}</h3>-->
+	<form>
+		<input class="work-topic-form" type="text" ng-model="pomodoro.message" name="worktopic" placeholder="" />
+		<br />
+		<input class="work-topic-submit" type="submit" ng-click="pomodoro.addMessage()" value="Add Task" />
+	</form>
+    <button class="slide-button" slide-work-topic>
+    </button>
+</section>
+
+
