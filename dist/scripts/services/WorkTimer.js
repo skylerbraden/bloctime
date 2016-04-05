@@ -15,9 +15,11 @@
 		})
 		
         var currentInterval;
-     
-        WorkTimer.currentTime = 8;
-        WorkTimer.maxTime = 8;
+
+        WorkTimer.WORK_SESSION = (25*60);
+        WorkTimer.BREAK_SESSION = (5*60);
+        WorkTimer.currentTime = WorkTimer.WORK_SESSION;
+        WorkTimer.maxTime = WorkTimer.WORK_SESSION;
         WorkTimer.counting = false;
         
         WorkTimer.startWork = function() {
@@ -56,13 +58,13 @@
         
         WorkTimer.resetWork = function() {
             $interval.cancel(currentInterval);
-			if(WorkTimer.maxTime == 8) {
-				WorkTimer.currentTime = 8;
-				WorkTimer.maxTime = 8;
+			if(WorkTimer.maxTime == WorkTimer.WORK_SESSION) {
+				WorkTimer.currentTime = WorkTimer.WORK_SESSION;
+				WorkTimer.maxTime = WorkTimer.WORK_SESSION;
 				WorkTimer.counting = false;
 			} else{
-				WorkTimer.currentTime = 5;
-				WorkTimer.maxTime = 5;
+				WorkTimer.currentTime = WorkTimer.BREAK_SESSION;
+				WorkTimer.maxTime = WorkTimer.BREAK_SESSION;
 				WorkTimer.counting = false;
 			}
         };
@@ -71,14 +73,14 @@
 			$interval.cancel(currentInterval);
 			WorkTimer.user.completedPomodoros = 0;
 			WorkTimer.user.$save();
-			WorkTimer.currentTime = 8;
-			WorkTimer.maxTime = 8;
+			WorkTimer.currentTime = WorkTimer.WORK_SESSION;
+			WorkTimer.maxTime = WorkTimer.WORK_SESSION;
 			WorkTimer.counting = false;
 		};
         
         function workCompleted() {
-            WorkTimer.currentTime = 5;
-            WorkTimer.maxTime = 5;
+            WorkTimer.currentTime = WorkTimer.BREAK_SESSION;
+            WorkTimer.maxTime = WorkTimer.BREAK_SESSION;
 			//firebase
             WorkTimer.user.completedPomodoros++;
 			WorkTimer.user.$save();
@@ -86,8 +88,8 @@
         }
         
         function breakCompleted() {
-            WorkTimer.currentTime = 8;
-            WorkTimer.maxTime = 8;
+            WorkTimer.currentTime = WorkTimer.WORK_SESSION;
+            WorkTimer.maxTime = WorkTimer.WORK_SESSION;
         }
         
 //        WorkTimer.userUpdate = function() {

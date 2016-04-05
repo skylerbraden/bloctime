@@ -1,0 +1,10 @@
+<section class="work-list" ng-hide="pomodoro.messages.length == 0">
+    <h1> Task List</h1>
+    <ol>
+        <li ng-repeat="message in pomodoro.messages | orderBy : '-time' ">
+            <a class="remove-x" ng-click="pomodoro.removeMessage(message)">X</a>
+            {{message.text}} {{message.time | date : 'short'}}
+        </li>
+    </ol>
+<!--    <button slide-work-topic slide-left=400>:)</button>-->
+</section>

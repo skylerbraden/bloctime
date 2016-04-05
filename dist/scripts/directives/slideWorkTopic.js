@@ -4,6 +4,7 @@
 	         replace: true,
 	         restrict: 'A',
 	         link: function(scope, element, attributes){
+                 
                  var clicked = false;
                  
                  slideLeft = attributes.slideLeft

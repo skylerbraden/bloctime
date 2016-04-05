@@ -1,0 +1,12 @@
+<section class="work-topic">
+	<h1>What's on today's agenda?</h1>
+<!--    <h2>{{pomodoro.messages[1].text}}</h2>-->
+<!--    <h3>{{pomodoro.workTimer.user.message}}</h3>-->
+	<form>
+		<input class="work-topic-form" type="text" ng-model="pomodoro.message" name="worktopic" placeholder="" />
+		<br />
+		<input class="work-topic-submit" type="submit" ng-click="pomodoro.addMessage()" value="Add Task" />
+	</form>
+    <button class="slide-button" slide-work-topic>
+    </button>
+</section>
