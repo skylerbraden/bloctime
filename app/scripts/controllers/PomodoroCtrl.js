@@ -1,7 +1,10 @@
 (function() {
-    function PomodoroCtrl(WorkTimer, $firebaseArray) {
+    function PomodoroCtrl(WorkTimer, $firebaseArray, $scope) {
         var vm = this;
         var clicked = false;
+        var ding = new buzz.sound('/assets/sounds/airplane-ding.wav', {
+            preload: true
+        });
 
         
         var ref = new Firebase('https://bloctime-sjb.firebaseio.com/users/1/messages');
@@ -9,11 +12,6 @@
         
         
         vm.workTimer = WorkTimer;
-        
-        
-//        window.foo = WorkTimer;
-        
-        window.foo = vm.messages;
         
         vm.addMessage = function(){
 //            vm.workTimer.user.message = vm.message;
@@ -30,6 +28,22 @@
             vm.messages.$remove(message);
         }
         
+//        (1) Value to watch, 
+//        (2) function to call when (1) changes, (2) is a closure, and has access to newValue and oldValue
+//        
+        
+        $scope.$watch(function(){
+          return WorkTimer.currentTime
+        }, function(newValue, oldValue) {
+            if(newValue == 0) {
+                ding.play();
+            }
+        });
+        
+
+        
+
+        //jQuery Version
 //        vm.slideWorkTopic = function() {
 //            if(clicked == false) {
 //                $('.work-topic').animate({
@@ -53,5 +67,5 @@
         
     angular
         .module('bloctime')
-        .controller('PomodoroCtrl', ['WorkTimer', "$firebaseArray", PomodoroCtrl]);
+        .controller('PomodoroCtrl', ['WorkTimer', "$firebaseArray", "$scope", PomodoroCtrl]);
 })();

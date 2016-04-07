@@ -2,6 +2,11 @@
     function WorkTimer($interval, $firebaseObject) {
 		var ref = new Firebase('https://bloctime-sjb.firebaseio.com/users/1');
 		var user = $firebaseObject(ref)
+//        ding = new buzz.sound('/sounds/airplane-ding.wav', {
+//            preload: true
+//        });
+                
+        
 		var WorkTimer = {};
 		
 		user.$loaded().then(function(){
@@ -15,10 +20,10 @@
 		})
 		
         var currentInterval;
-
-        WorkTimer.WORK_SESSION = 3;
-        WorkTimer.BREAK_SESSION = 2;
-        WorkTimer.LONG_BREAK = 4;
+        
+        WorkTimer.WORK_SESSION = (25*60);
+        WorkTimer.BREAK_SESSION = (5*60);
+        WorkTimer.LONG_BREAK = (30*60);
         WorkTimer.currentTime = WorkTimer.WORK_SESSION;
         WorkTimer.maxTime = WorkTimer.WORK_SESSION;
         WorkTimer.counting = false;
@@ -87,7 +92,9 @@
             //firebase
             WorkTimer.user.completedPomodoros++;
 			WorkTimer.user.$save();
-//			console.log(WorkTimer.user.completedPomodoros);
+            
+//            ding.play();
+//            console.log("this should ding");
             
             if(WorkTimer.user.completedPomodoros % 4 == 0) {
                 WorkTimer.currentTime = WorkTimer.LONG_BREAK;
@@ -103,12 +110,6 @@
             WorkTimer.currentTime = WorkTimer.WORK_SESSION;
             WorkTimer.maxTime = WorkTimer.WORK_SESSION;
         }
-        
-//        WorkTimer.userUpdate = function() {
-//            alert(pomodoro.workTimer.user.message)
-////            WorkTimer.user.message = angular.copy(message);
-////            WorkTimer.user.$save();
-//        };
         		
 		
 
