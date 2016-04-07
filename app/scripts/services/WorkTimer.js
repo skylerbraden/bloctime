@@ -16,8 +16,9 @@
 		
         var currentInterval;
 
-        WorkTimer.WORK_SESSION = (25*60);
-        WorkTimer.BREAK_SESSION = (5*60);
+        WorkTimer.WORK_SESSION = 3;
+        WorkTimer.BREAK_SESSION = 2;
+        WorkTimer.LONG_BREAK = 4;
         WorkTimer.currentTime = WorkTimer.WORK_SESSION;
         WorkTimer.maxTime = WorkTimer.WORK_SESSION;
         WorkTimer.counting = false;
@@ -62,11 +63,15 @@
 				WorkTimer.currentTime = WorkTimer.WORK_SESSION;
 				WorkTimer.maxTime = WorkTimer.WORK_SESSION;
 				WorkTimer.counting = false;
-			} else{
+			} else if(WorkTimer.maxTime == WorkTimer.BREAK_SESSION) {
 				WorkTimer.currentTime = WorkTimer.BREAK_SESSION;
 				WorkTimer.maxTime = WorkTimer.BREAK_SESSION;
 				WorkTimer.counting = false;
-			}
+			} else {
+                WorkTimer.currentTime = WorkTimer.LONG_BREAK;
+				WorkTimer.maxTime = WorkTimer.LONG_BREAK;
+				WorkTimer.counting = false;
+            }
         };
 		
 		WorkTimer.clearPomodoros = function() {
@@ -79,12 +84,19 @@
 		};
         
         function workCompleted() {
-            WorkTimer.currentTime = WorkTimer.BREAK_SESSION;
-            WorkTimer.maxTime = WorkTimer.BREAK_SESSION;
-			//firebase
+            //firebase
             WorkTimer.user.completedPomodoros++;
 			WorkTimer.user.$save();
-			console.log(WorkTimer.user.completedPomodoros);
+//			console.log(WorkTimer.user.completedPomodoros);
+            
+            if(WorkTimer.user.completedPomodoros % 4 == 0) {
+                WorkTimer.currentTime = WorkTimer.LONG_BREAK;
+                WorkTimer.maxTime = WorkTimer.LONG_BREAK;
+            } else{                
+                WorkTimer.currentTime = WorkTimer.BREAK_SESSION;
+                WorkTimer.maxTime = WorkTimer.BREAK_SESSION;
+            }
+			
         }
         
         function breakCompleted() {

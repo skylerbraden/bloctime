@@ -30,6 +30,10 @@
     background-color: white;
 }
 
+.wide-button.long-break {
+    font-size: 1.2rem !important;
+}
+
 .pomodoroCount {
     text-align: center;
     font-size: 1.5rem;
@@ -56,7 +60,7 @@
 	width: 100%;
 	top: 50px;
 	text-align: center;
-	font-weight: 900;
+	font-weight: 500;
     font-size: 1.5rem;
 }
 
