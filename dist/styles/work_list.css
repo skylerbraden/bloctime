@@ -1,0 +1,67 @@
+.work-list {
+    position: absolute;
+    float: left;
+    width: 40%;
+    height: 100%;
+    left: -40%;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.work-list h1 {
+    margin: 50px 0 25px 25px;
+	font-weight: 300;
+    font-size: 1.5rem;
+    color: rgb(105, 105, 105);
+    text-transform: uppercase;
+}
+
+.work-list-submit {
+	width: 150px;
+    height: 30px;
+	margin-top: 25px;
+    margin-right: 12.5%;
+    font-size: 0.9rem;
+    font-weight: 100;
+    float: right;
+    background-color: rgb(105, 105, 105);
+    text-transform: uppercase;
+    border: none;
+}
+
+.work-list-form {
+	width: 75%;
+    height: 45px;
+    margin-left: 25px;
+	padding: 0 7px;
+    font-size: 1.1rem;
+    font-weight: 300;
+	color: darkgray;
+    background-color: rgb(105, 105, 105);
+    border: none;
+}
+
+.remove-x {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-right: 5px;
+    cursor: pointer;
+    cursor: hand;
+}
+
+.slide-button {
+    background-color: rgb(105, 105, 105);
+    position: absolute;
+    width: 20px;
+    height: 40px;
+    left: 100%;
+    top: 50%;
+    border: none;
+    color: rgb(105, 105, 105);
+}
+
+
+.work-list ol {
+    list-style-type: none;
+    padding: 15px;
+    color: rgb(105, 105, 105);
+}

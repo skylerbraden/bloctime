@@ -13,12 +13,12 @@
                      
                     if(clicked == false) {
                         $(element).parent().animate({
-                            left: '0px'
+                            left: '0%'
                         }, 1400);
                         clicked = true;
                     }else {
                         $(element).parent().animate({
-                            left: '-410px'
+                            left: '-40%'
                         }, 1400);
                         clicked = false;
                     }
